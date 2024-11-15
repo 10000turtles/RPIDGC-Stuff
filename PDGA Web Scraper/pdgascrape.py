@@ -8,8 +8,6 @@ link = 'https://www.pdga.com'
 
 playerAddon = '/player/215058'
 
-
-
 html_data = requests.get(link + playerAddon)
 time.sleep(SLEEP_CONST)
 
@@ -26,6 +24,7 @@ for i in soup.find_all('td',{"class": "tournament"}):
 
         for k in soup.find_all('tr',{"class": ["even","odd"]}):
             num = 0
+            # Change find_all here to just find 
             for l in k.find_all('td',{"class": "pdga-number"}):
                 if(len(l.contents) > 0):
                     num = int(l.contents[0])
